@@ -1,0 +1,1 @@
+{"rustc":10026429466883849012,"features":"[]","target":6961106743770594213,"profile":2285152228202085614,"path":13205481494314911446,"deps":[[16065926790896334425,"libc",false,1626819855219522312]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/fdlimit-fe5c6a41e6587f9d/dep-lib-fdlimit"}}],"rustflags":[],"metadata":7148210871566098902,"config":0,"compile_kind":0}

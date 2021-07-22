@@ -1,0 +1,1 @@
+{"rustc":18145874729619535536,"features":"[\"default\", \"std\"]","target":18401462916428037899,"profile":2285152228202085614,"path":12642633402532101199,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/async-task-b775e567211200ef/dep-lib-async-task"}}],"rustflags":[],"metadata":15013381577786509322,"config":0,"compile_kind":0}

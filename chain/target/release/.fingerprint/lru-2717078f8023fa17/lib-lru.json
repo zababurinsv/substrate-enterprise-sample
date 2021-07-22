@@ -1,0 +1,1 @@
+{"rustc":4766927058465437908,"features":"[\"default\", \"hashbrown\"]","target":7048079575651598237,"profile":4339006351771724982,"path":8921522733728741074,"deps":[[16031064056138418895,"hashbrown",false,14016476116265052418]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/lru-2717078f8023fa17/dep-lib-lru"}}],"rustflags":[],"metadata":17229883578308254976,"config":0}

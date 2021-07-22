@@ -1,0 +1,5 @@
+   Compiling wasm-build-runner-impl v1.0.0 (/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/wbuild-runner/enterprise-sample-runtime10941463898721531044)
+    Finished release [optimized] target(s) in 1.09s
+     Running `/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/wbuild-runner/enterprise-sample-runtime10941463898721531044/target/x86_64-unknown-linux-gnu/release/wasm-build-runner-impl`
+[0m[0m[1m[32m    Updating[0m git repository `https://github.com/encointer/substrate-fixed`
+[0m[0m[1m[32m    Finished[0m release [optimized] target(s) in 1.69s

@@ -1,0 +1,17 @@
+/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/deps/soketto-9c691474fb6a4c07.rmeta: /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/lib.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/base.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/data.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/extension.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/extension/deflate.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/handshake.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/handshake/client.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/handshake/server.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/connection.rs
+
+/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/deps/libsoketto-9c691474fb6a4c07.rlib: /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/lib.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/base.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/data.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/extension.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/extension/deflate.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/handshake.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/handshake/client.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/handshake/server.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/connection.rs
+
+/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/deps/soketto-9c691474fb6a4c07.d: /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/lib.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/base.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/data.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/extension.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/extension/deflate.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/handshake.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/handshake/client.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/handshake/server.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/connection.rs
+
+/home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/lib.rs:
+/home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/base.rs:
+/home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/data.rs:
+/home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/extension.rs:
+/home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/extension/deflate.rs:
+/home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/handshake.rs:
+/home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/handshake/client.rs:
+/home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/handshake/server.rs:
+/home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.2/src/connection.rs:
+
+# env-dep:CARGO_PKG_VERSION=0.4.2

@@ -1,0 +1,14 @@
+/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/deps/target_lexicon-7d299fc50e770a72.rmeta: /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/lib.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/host.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/parse_error.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/targets.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/triple.rs /home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/build/target-lexicon-9472a9b4505ae869/out/host.rs
+
+/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/deps/libtarget_lexicon-7d299fc50e770a72.rlib: /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/lib.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/host.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/parse_error.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/targets.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/triple.rs /home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/build/target-lexicon-9472a9b4505ae869/out/host.rs
+
+/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/deps/target_lexicon-7d299fc50e770a72.d: /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/lib.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/host.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/parse_error.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/targets.rs /home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/triple.rs /home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/build/target-lexicon-9472a9b4505ae869/out/host.rs
+
+/home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/lib.rs:
+/home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/host.rs:
+/home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/parse_error.rs:
+/home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/targets.rs:
+/home/zb/.cargo/registry/src/github.com-1ecc6299db9ec823/target-lexicon-0.10.0/src/triple.rs:
+/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/build/target-lexicon-9472a9b4505ae869/out/host.rs:
+
+# env-dep:OUT_DIR=/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/build/target-lexicon-9472a9b4505ae869/out

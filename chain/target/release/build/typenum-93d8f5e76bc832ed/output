@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/build/typenum-93d8f5e76bc832ed/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/build/typenum-93d8f5e76bc832ed/out/op.rs

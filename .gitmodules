@@ -1,0 +1,4 @@
+[submodule "openbazaar"]
+	path = projects/openbazaar
+	url = https://github.com/zababurinsv/substrate-front-end-template.git
+    branch = zb

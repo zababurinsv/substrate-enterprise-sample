@@ -1,0 +1,116 @@
+{
+  "name": "@substrate/extension",
+  "version": "0.0.1",
+  "description": "Browser extension to manage substrate-based blockchain light clients",
+  "main": "index.js",
+  "author": "Parity Technologies",
+  "license": "GPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "downloadSpecs": "node downloadSpecs.js",
+    "deep-clean": "yarn clean && rm -rf node_modules",
+    "clean": "rm -rf dist",
+    "pretest": "yarn clean && tsc",
+    "test": "node --experimental-vm-modules $(yarn bin)/jest --colors --silent --coverage /dist",
+    "prebuild": "yarn clean && yarn downloadSpecs",
+    "build": "webpack --config webpack.prod.js && zip -r ./dist/substrate-connect.zip ./dist/*",
+    "dev": "yarn run prebuild && webpack --node-env development --config webpack.dev.js",
+    "start": "web-ext run --source-dir ./dist -t chromium",
+    "start:firefox": "web-ext run --source-dir ./dist -t firefox-desktop",
+    "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "resolutions": {
+    "styled-components": "^5"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@babel/core": "^7.12.17",
+    "@babel/preset-env": "^7.12.17",
+    "@babel/preset-react": "^7.12.13",
+    "@hot-loader/react-dom": "^17.0.1",
+    "@material-ui/types": "^5.1.0",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@types/chrome": "^0.0.132",
+    "@types/copy-webpack-plugin": "^6.4.0",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@types/react-hot-loader": "^4.1.1",
+    "@types/styled-components": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^4.15.1",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-styled-components": "^1.12.0",
+    "copy-webpack-plugin": "^7.0.0",
+    "css-loader": "^5.0.2",
+    "eslint": "^7.20.0",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-tsdoc": "^0.2.14",
+    "file-loader": "^6.2.0",
+    "html-minimizer-webpack-plugin": "^2.1.0",
+    "jest": "^27.0.0-next.9",
+    "jest-chrome": "^0.7.0",
+    "jest-styled-components": "^7.0.3",
+    "style-loader": "^2.0.0",
+    "ts-loader": "^8.0.17",
+    "typescript": "^4.1.5",
+    "url-loader": "^4.1.1",
+    "web-ext": "^5.5.0",
+    "webpack": "^5.23.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-private-methods": "^7.12.13",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/styles": "^4.11.3",
+    "@polkadot/rpc-provider": "^4.10.1",
+    "@substrate/connect-extension-protocol": "^0.3.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-hot-loader": "^4.13.0",
+    "smoldot": "^0.2.4",
+    "strict-event-emitter-types": "^2.0.0",
+    "styled-components": "^5.2.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "rules": {
+      "@typescript-eslint/restrict-template-expressions": 0,
+      "tsdoc/syntax": "warn",
+      "react/prop-types": 0,
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "@typescript-eslint/no-var-requires": 0
+    },
+    "parser": "@typescript-eslint/parser",
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "react-hooks",
+      "eslint-plugin-tsdoc"
+    ],
+    "parserOptions": {
+      "project": [
+        "./tsconfig.json"
+      ],
+      "createDefaultProgram": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking"
+    ],
+    "env": {
+      "node": true
+    }
+  }
+}

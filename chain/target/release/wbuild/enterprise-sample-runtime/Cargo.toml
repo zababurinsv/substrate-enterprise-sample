@@ -1,0 +1,13 @@
+
+				[package]
+				name = "enterprise-sample-runtime-wasm"
+				version = "1.0.0"
+				edition = "2018"
+
+				[lib]
+				name = "enterprise_sample_runtime"
+				crate-type = ["cdylib"]
+
+				[dependencies]
+				wasm_project = { package = "enterprise-sample-runtime", path = "/home/zb/Desktop/rust/substrate-enterprise-sample/chain/runtime", default-features = false, features = [  ] }
+			

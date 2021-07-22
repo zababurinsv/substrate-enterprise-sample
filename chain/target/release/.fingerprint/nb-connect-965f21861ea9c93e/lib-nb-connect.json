@@ -1,0 +1,1 @@
+{"rustc":10026429466883849012,"features":"[]","target":672771408850637546,"profile":2285152228202085614,"path":5266971477499162021,"deps":[[16065926790896334425,"libc",false,1626819855219522312]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/nb-connect-965f21861ea9c93e/dep-lib-nb-connect"}}],"rustflags":[],"metadata":13105029993973118244,"config":0,"compile_kind":0}

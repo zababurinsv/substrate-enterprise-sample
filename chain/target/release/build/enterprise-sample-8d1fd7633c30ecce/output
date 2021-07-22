@@ -1,0 +1,4 @@
+cargo:rustc-env=SUBSTRATE_CLI_IMPL_VERSION=2.0.0-afcb6cb-x86_64-linux-gnu
+cargo:rerun-if-changed=/home/zb/Desktop/rust/substrate-enterprise-sample/.git/HEAD
+cargo:rerun-if-changed=/home/zb/Desktop/rust/substrate-enterprise-sample/.git/refs/heads/zb
+

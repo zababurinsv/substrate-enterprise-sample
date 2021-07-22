@@ -1,0 +1,27 @@
+cargo:rustc-link-lib=dl
+TARGET = Some("x86_64-unknown-linux-gnu")
+OPT_LEVEL = Some("0")
+HOST = Some("x86_64-unknown-linux-gnu")
+CC_x86_64-unknown-linux-gnu = None
+CC_x86_64_unknown_linux_gnu = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-unknown-linux-gnu = None
+CFLAGS_x86_64_unknown_linux_gnu = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("false")
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-m64" "-Wall" "-Wextra" "-o" "/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/build/libloading-68bbb972fff2382f/out/src/os/unix/global_static.o" "-c" "src/os/unix/global_static.c"
+exit status: 0
+AR_x86_64-unknown-linux-gnu = None
+AR_x86_64_unknown_linux_gnu = None
+HOST_AR = None
+AR = None
+running: "ar" "cq" "/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/build/libloading-68bbb972fff2382f/out/libglobal_static.a" "/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/build/libloading-68bbb972fff2382f/out/src/os/unix/global_static.o"
+exit status: 0
+running: "ar" "s" "/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/build/libloading-68bbb972fff2382f/out/libglobal_static.a"
+exit status: 0
+cargo:rustc-link-lib=static=global_static
+cargo:rustc-link-search=native=/home/zb/Desktop/rust/substrate-enterprise-sample/chain/target/release/build/libloading-68bbb972fff2382f/out

@@ -1,0 +1,1 @@
+{"rustc":10026429466883849012,"features":"","target":0,"profile":0,"path":0,"deps":[[3537625825111947399,"build_script_build",false,447880995647965370]],"local":[{"RerunIfChanged":{"output":"release/build/cranelift-codegen-9a1ff86a452d9939/output","paths":["build.rs"]}}],"rustflags":[],"metadata":0,"config":0,"compile_kind":0}
