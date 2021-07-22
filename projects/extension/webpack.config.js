@@ -34,6 +34,7 @@ const config = {
         loader: "ts-loader",
         exclude: /node_modules/,
         options: {
+          projectReferences: true,
           transpileOnly: true
         }
       },
@@ -81,6 +82,9 @@ const config = {
   plugins: [
     new CopyPlugin({
       patterns: [{ from: "public", to: "." }],
+    }),
+    new webpack.ProvidePlugin({
+      Buffer: ['buffer', 'Buffer'],
     }),
     new webpack.EnvironmentPlugin({
       PKG_NAME: '@substrate/extension',

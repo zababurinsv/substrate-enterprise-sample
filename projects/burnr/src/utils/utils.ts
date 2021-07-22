@@ -1,8 +1,15 @@
+import { ApiPromise } from '@polkadot/api';
 import { Account, LocalStorageAccountCtx } from './types';
 import { uniqueNamesGenerator, Config, starWars } from 'unique-names-generator';
 import { mnemonicGenerate } from '@polkadot/util-crypto';
 import { Keyring } from '@polkadot/api';
+import { decodeAddress, encodeAddress } from '@polkadot/keyring';
+import { hexToU8a, isHex } from '@polkadot/util';
 import { KeyringPair$Json } from '@polkadot/keyring/types';
+import { formatBalance } from '@polkadot/util';
+import type { Balance } from '@polkadot/types/interfaces';
+import BN from 'bn.js';
+import { ALL_PROVIDERS } from './constants';
 
 const keyring = new Keyring({ type: 'sr25519' });
 
@@ -60,3 +67,56 @@ export const getKeyring = (): Keyring => keyring;
 
 export const transformCurrency = (currencyLevel: string, currency: string): string =>
     (currencyLevel !== '-') ? currencyLevel.concat(currency) : currency;
+
+export const isValidAddressPolkadotAddress = (address = ''): boolean => {
+  try {
+    encodeAddress(
+      isHex(address)
+        ? hexToU8a(address.toString())
+        : decodeAddress(address)
+    );
+
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
+/*
+* format once with @polkadot/util formatBalance,
+* then strip the trailing Unit and make it to 2 decimal points
+*/
+export const prettyBalance = (rawBalance: Balance | BN | number): string => {
+  
+  if( (typeof(rawBalance) === 'number' &&  rawBalance === 0) || !rawBalance) {
+    return '0'
+  } else if (rawBalance.toString() === '0'){
+    return rawBalance.toString();
+  }
+  // Use `api.registry.chainDecimals` instead of decimals
+  const firstPass = formatBalance(rawBalance,  { decimals: 12, forceUnit: '-', withSi: false });
+
+  return firstPass.slice(0, firstPass.length - 1);
+}
+
+export const humanReadable = (amnt: number, api: ApiPromise): string => (amnt/Math.pow(10, api.registry.chainDecimals[0])).toFixed(4);
+
+export const validateLocalstorage = (): void => {
+  // expected acceptable values of localStorage.
+  // Add type info to avoid having to cast
+  const expectedValues: Record<string, string[]> = {
+    "theme": ["true", "false"],
+    "balanceVisibility": ["true", "false"],
+    "endpoint": [ ALL_PROVIDERS.network ] // now an array although we don't even really need this in storage any more
+  };
+
+  Object.keys(expectedValues).forEach(key => {
+    if (!Object.keys(localStorage).includes(key)) { 
+      return;
+    }
+    
+    if (!expectedValues[key].includes(localStorage[key])) {
+      localStorage.removeItem(key);
+    }
+  });
+}

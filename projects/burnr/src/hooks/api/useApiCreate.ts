@@ -4,48 +4,34 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 
 import { useEffect, useState } from 'react';
-import { ApiPromise, WsProvider } from '@polkadot/api';
+import { ApiPromise } from '@polkadot/api';
+import { logger } from '@polkadot/util';
 import { Detector }  from '@substrate/connect';
-import { ALL_PROVIDERS } from '../../utils/constants';
-import { LazyProvider } from '../../utils/types'; 
-import { useIsMountedRef, useLocalStorage } from '..';
+import { ALL_PROVIDERS, BURNR_WALLET } from '../../utils/constants';
+import { useIsMountedRef } from '..';
 
-console.log('ALL_PROVIDERS: ', ALL_PROVIDERS)
+const l = logger(BURNR_WALLET);
 
 export default function useApiCreate (): ApiPromise {
   const [api, setApi] = useState<ApiPromise>({} as ApiPromise);
-  const [localEndpoint] = useLocalStorage('endpoint');
 
-  const [provider] = useState<LazyProvider>(ALL_PROVIDERS[localEndpoint] || ALL_PROVIDERS['Polkadot-WsProvider']);
+  const [network] = useState<string>(ALL_PROVIDERS.network.toLowerCase());
   const  mountedRef = useIsMountedRef();
 
   useEffect((): void => {
-    const choseSmoldot = async () => {
+    const choseSmoldot = async (endpoint: string): Promise<void> => {
       try {
         const detect = new Detector('burnr wallet');
-        const api = await detect.connect('westend');
+        const api = await detect.connect(endpoint);
+        l.log(`Burnr is now connected to ${endpoint}`);
         mountedRef.current && setApi(api);
       } catch (err) {
-        console.log('A wild error appeared:', err);
+        l.error('Error:', err);
       }
     }
-
-    localEndpoint !== 'Westend-WsProvider' && ApiPromise
-      .create({
-        provider: new WsProvider(provider.endpoint),
-        types: {}
-      })
-      .then((api): void => {
-        console.log(`Burnr is now connected to ${provider.endpoint === 'string' && provider.endpoint}`);
-        console.log("API api", api);
-        mountedRef.current && setApi(api);
-      })
-      .catch((err): void => {
-        console.error(err);
-      });
-
-      localEndpoint === 'Westend-WsProvider' && choseSmoldot();
-  }, [mountedRef, provider.endpoint, localEndpoint]);
+    
+    void choseSmoldot(network);
+  }, [mountedRef, network]);
 
   return api;
 }

@@ -91,6 +91,7 @@ export class SmoldotProvider implements ProviderInterface {
   #connectionStatePingerId: ReturnType<typeof setInterval> | null;
   #isConnected = false;
   #client: smoldot.SmoldotClient | undefined = undefined;
+  #chain: smoldot.SmoldotChain | undefined = undefined;
   // reference to the smoldot module so we can defer loading the wasm client
   // until connect is called
   #smoldot: smoldot.Smoldot;
@@ -216,12 +217,13 @@ export class SmoldotProvider implements ProviderInterface {
       return;
     }
 
-    const peerCount = health.peers;
+    const peerCount = health.peers
+    const peerChecks = (peerCount > 0 || !health.shouldHavePeers) && !health.isSyncing;
 
     l.debug(`Simulating lifecylce events from system_health`);
     l.debug(`isConnected: ${this.#isConnected.toString()}, new peerCount: ${peerCount}`);
 
-    if (this.#isConnected && peerCount > 0) {
+    if (this.#isConnected && peerChecks) {
       // still connected
       return;
     }
@@ -233,7 +235,7 @@ export class SmoldotProvider implements ProviderInterface {
       return;
     }
 
-    if (!this.#isConnected && peerCount > 0) {
+    if (!this.#isConnected && peerChecks) {
       this.#isConnected = true;
       this.emit('connected');
       l.debug(`emitted CONNECTED`);
@@ -256,12 +258,15 @@ export class SmoldotProvider implements ProviderInterface {
     assert(!this.#client && !this.#isConnected, 'Client is already connected');
     try {
       this.#client = await this.#smoldot.start({
-        chainSpecs: [this.#chainSpec],
+        forbidWs: true, /* suppress console warnings about insecure connections */
         maxLogLevel: 3, /* no debug/trace messages */
+      });
+      this.#chain = await this.#client.addChain({
+        chainSpec: this.#chainSpec,
         jsonRpcCallback: (response: string) => {
-            this.#handleRpcReponse(response);
+          this.#handleRpcReponse(response);
         }
-      })
+      });
       this.#connectionStatePingerId = setInterval(
       this.#checkClientPeercount, this.healthPingerInterval);
     } catch(error: unknown) {
@@ -332,6 +337,7 @@ export class SmoldotProvider implements ProviderInterface {
   ): Promise<any> {
     return new Promise((resolve, reject): void => {
         assert(this.#client, 'Client is not initialised');
+        assert(this.#chain, 'Chain is not initialised');
         const json = this.#coder.encodeJson(method, params);
         const id = this.#coder.getId();
 
@@ -348,8 +354,7 @@ export class SmoldotProvider implements ProviderInterface {
           method,
           subscription
         };
-
-      this.#client.sendJsonRpc(json, 0);
+      this.#chain.sendJsonRpc(json);
     });
   }
 

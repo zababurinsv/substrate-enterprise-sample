@@ -5,6 +5,8 @@ import { ApiContext, AccountContext } from './utils/contexts';
 import { LocalStorageAccountCtx } from './utils/types';
 import { useApiCreate, useLocalStorage } from './hooks';
 import { createLocalStorageAccount } from './utils/utils';
+import { ALL_PROVIDERS } from './utils/constants';
+import { ApiPromise } from '@polkadot/api';
 
 import Home from './Home';
 
@@ -30,26 +32,32 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const App: React.FunctionComponent<Props> = ({ className = '' }: Props) => {
-  const api = useApiCreate();
+  const api: ApiPromise = useApiCreate();
   const classes = useStyles();
   const [endpoint, setEndpoint] = useLocalStorage('endpoint');
-  if (!endpoint) setEndpoint('Polkadot-WsProvider');
-  const [localStorageAccount, setLocalStorageAccount] = useLocalStorage(endpoint.split('-')[0]?.toLowerCase());
+  if (!endpoint) {
+    setEndpoint(ALL_PROVIDERS.network);
+  }
+  const [localStorageAccount, setLocalStorageAccount] = useLocalStorage(endpoint?.toLowerCase());
 
   const [account, setCurrentAccount] = useState<LocalStorageAccountCtx>({} as LocalStorageAccountCtx);
   const [loader, setLoader] = useState(true)
 
   useEffect((): void => {
-    if (api && api.isReady) {
-      if (!localStorageAccount) {
-        const userTmp = createLocalStorageAccount();
-        setLocalStorageAccount(JSON.stringify(userTmp));
-        setCurrentAccount(userTmp);
-      } else {
-        setCurrentAccount(JSON.parse(localStorageAccount));
-      }
-      setLoader(false)
+    const callSetters = async () => {
+      if (await api.isReady) {
+        if (!localStorageAccount) {
+          const userTmp = createLocalStorageAccount();
+          setLocalStorageAccount(JSON.stringify(userTmp));
+          setCurrentAccount(userTmp);
+        } else {
+          setCurrentAccount(JSON.parse(localStorageAccount));
+        }
+        setLoader(false);
+      }  
     }
+
+    api && callSetters();
   }, [localStorageAccount, setLocalStorageAccount, api]);
 
   return (

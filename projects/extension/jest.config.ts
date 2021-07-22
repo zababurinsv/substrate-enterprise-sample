@@ -1,9 +1,16 @@
 export default {
-  transform: {},
+  coverageReporters: ["text-summary"],
+  roots: ['<rootDir>/src'],
+  reporters: ["jest-silent-reporter"],
   testEnvironment: 'jsdom',
-  moduleFileExtensions: ["js", "jsx"],
   setupFilesAfterEnv: ['./jest-setup.js'],
   verbose: true,
-  testURL: 'http://localhost/'
+  testURL: 'http://localhost/',
+  preset: "ts-jest/presets/js-with-babel-esm",
+  globals: {
+    'ts-jest': {
+      useESM: true
+    }
+  }
 };
 
